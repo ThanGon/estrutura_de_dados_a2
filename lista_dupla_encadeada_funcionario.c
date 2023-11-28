@@ -82,7 +82,7 @@ NO* busca_por_inicial(NO* prim, char nome) {
     NO* aux = prim;
     NO* resultado = NULL;
     while(aux != NULL) {
-        if (strcmp(aux->info.nome[0], nome) != 0) {
+        if (aux->info.nome[0] == nome) {
             if (resultado == NULL) {
                 resultado = (NO*) malloc(sizeof(NO));
                 resultado->prox = NULL;
@@ -97,7 +97,7 @@ NO* busca_por_inicial(NO* prim, char nome) {
         }
         aux = aux->prox;
     }
-    return resultado;
+     return resultado;
 }
 
 NO* ordena_lista_crescente(NO* prim) {
@@ -118,5 +118,16 @@ void imprime_lista(NO* prim) {
     while (prim != NULL) {
         printf("Nome: %s | Salario: %i \n", prim->info.nome, prim->info.salario);
         prim = prim->prox;
+    }
+}
+
+void imprime_lista_cima_baixo(NO* prim) {
+    if (prim == NULL) {
+        printf("Nenhum nome encontrado com esta inicial\n");
+        return;
+    }
+    while (prim != NULL) {
+        printf("Nome: %s | Salario: %i \n", prim->info.nome, prim->info.salario);
+        prim = prim->ant;
     }
 }
