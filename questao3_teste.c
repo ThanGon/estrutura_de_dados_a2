@@ -1,4 +1,4 @@
-#include "questao2.c"
+#include "questao3.c"
 #include <time.h>
 #include <stdlib.h>
 
