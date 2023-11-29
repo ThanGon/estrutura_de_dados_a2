@@ -16,6 +16,17 @@ int tamanhoFilaEspera(TFila *filaEspera) {
     return tamanho;
 }
 
+int buscaAviaoPorId(int id, aviao avioes[]) {
+    for (int i = 0; i < 6; i++)
+    {
+        if (avioes[i].id == id)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
 void adicionarAviaoFila(TFila *f, int idAviao, aviao avioes[]) {
     NO *aux = f->inicio;
     while (aux != NULL)
@@ -37,16 +48,7 @@ void adicionarAviaoFila(TFila *f, int idAviao, aviao avioes[]) {
     inserir(f, idAviao);
 }
 
-int buscaAviaoPorId(int id, aviao avioes[]) {
-    for (int i = 0; i < 6; i++)
-    {
-        if (avioes[i].id == id)
-        {
-            return i;
-        }
-    }
-    return -1;
-}
+
 
 void liberarAviao(TFila *f) {
     if (vazia(f))
@@ -78,11 +80,11 @@ void listarAvioes(TFila *f) {
 }
 
 
-int main() {
+int main(void* args) {
     TFila *filaEspera = inicializa(filaEspera);
     aviao avioes[6] = {1, "Aviao 1", 2, "Aviao 2", 3, "Aviao 3", 4, "Aviao 4", 5, "Aviao 5", 6, "Aviao 6"};
 
-    int opcao;
+    int opcao = 9;
     while (opcao != 0)
     {
         printf("\n\n");
@@ -113,7 +115,8 @@ int main() {
             break;
         case 5: 
             if (filaEspera->inicio != NULL) {
-                aviao a = avioes[buscaAviaoPorId(filaEspera->inicio->info, avioes)];
+                int index = buscaAviaoPorId(filaEspera->inicio->info, avioes);
+                aviao a = avioes[index];
                 printf("Id: %d | Nome: %s", a.id, a.nome);
             } else {
                 printf("Nao ha avioes na fila de espera\n");
@@ -126,6 +129,8 @@ int main() {
             break;
         }
     }
+
+    return 0;
 }
 
 
