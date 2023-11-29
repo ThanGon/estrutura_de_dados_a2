@@ -2,11 +2,11 @@
 
 NO* preencheLista(NO* prim) {
         for (int i = 0; i < 6; i++) {
-        funcionario f;
+        funcionario *f = (funcionario*) malloc(sizeof(funcionario));
         printf("Nome: ");
-        scanf("%s", f.nome);
+        scanf("%s", f->nome);
         printf("Salario: ");
-        scanf("%i", &f.salario);
+        scanf("%i", &f->salario);
         prim = insere_lista_ordenada(prim, f, 1);
     }
     return prim;
@@ -16,15 +16,15 @@ NO* menu(int opcao, NO* prim) {
     switch (opcao)
     {
     case 1:
-        funcionario f;
+        funcionario *f = (funcionario*) malloc(sizeof(funcionario));
         printf("Nome: ");
-        scanf("%s", f.nome);
+        scanf("%s", f->nome);
         printf("Salario: ");
-        scanf("%i", &f.salario);
+        scanf("%i", &f->salario);
         prim = insere_lista_ordenada(prim, f, 1);
         return prim;
     case 2:
-        imprime_lista(prim);
+        imprime_lista_detalhada(prim);
         return prim;
     case 3:
         imprime_lista(ordena_lista_crescente(prim));

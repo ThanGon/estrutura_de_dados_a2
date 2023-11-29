@@ -4,7 +4,7 @@
 
 void MaiorMenor(TPilha *p) {
     int maior = INT_MIN, menor = INT_MAX;
-    TPilha *aux = (TPilha*) malloc(sizeof(TPilha));
+    TPilha *aux = inicializa(aux);
     aux->topo = p->topo;
     while (aux->topo != NULL) {
         if (aux->topo->info > maior) {
@@ -36,23 +36,3 @@ TPilha* ordena(TPilha *p) {
 
     return pilhaOrdenada;
 }
-
-// TPilha* ordena(TPilha *p) {
-//     TPilha *aux = NULL;
-//     TPilha *resultado = NULL;
-//     aux = inicializa(aux);
-//     resultado = inicializa(resultado);
-    
-//     aux->topo = p->topo;
-//     while (aux->topo != NULL) {
-//         TPilha *topo = aux;
-//         while (aux -> topo -> prox != NULL) {
-//             if (aux->topo->info > aux->topo->prox->info) {
-//                 push(resultado, aux->topo->prox->info);
-//             }
-//             aux->topo = aux->topo->prox;
-//         }
-//         aux->topo = topo->topo->prox;
-//     }
-//     return resultado;
-// }
