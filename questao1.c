@@ -46,16 +46,17 @@ int main(void *args) {
     printf("Insira 6 funcionarios:\n");
     prim = preencheLista(prim);
     printf("Lista iniciada\n");
-    int opcao = 0;
-    while (opcao != 5) {
+    int opcao;
+    do {
         printf("Escolha uma das opcoes:\n");
         printf("1 - Inserir funcionario\n");
         printf("2 - Imprimir lista\n");
         printf("3 - Ordenar lista crescente\n");
         printf("4 - Buscar por inicial\n");
-        printf("5 - Sair\n");
+        printf("0 - Sair\n");
         scanf("%i", &opcao);
         prim = menu(opcao, prim);
-    }
+    } while (opcao != 0);
+
     return 0;
 }

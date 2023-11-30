@@ -84,8 +84,8 @@ int main(void* args) {
     TFila *filaEspera = inicializa(filaEspera);
     aviao avioes[6] = {1, "Aviao 1", 2, "Aviao 2", 3, "Aviao 3", 4, "Aviao 4", 5, "Aviao 5", 6, "Aviao 6"};
 
-    int opcao = 9;
-    while (opcao != 0)
+    int opcao;
+    do
     {
         printf("\n\n");
         printf("1 - Inserir aviao na fila de espera\n");
@@ -128,7 +128,7 @@ int main(void* args) {
             printf("Opcao invalida\n");
             break;
         }
-    }
+    } while (opcao != 0);
 
     return 0;
 }
